@@ -12,6 +12,7 @@ import * as csurf from 'csurf';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // DTOとクラスバリデーションを有効化
+  // whiteListは、入力データのバリデーション時に、指定されたプロパティ以外のプロパティを無視するためのオプション
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   // フロント側と通信するために必要な設定
   app.enableCors({
