@@ -21,6 +21,21 @@ async function bootstrap() {
   });
   // フロントエンドから受け取ったCookieを解析できるようにする
   app.use(cookieParser());
-  await app.listen(3005);
+
+  app.use(
+    csurf({
+      cookie: {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+      },
+      value: (req: Request) => {
+        // サーバー側で判定するために必要
+        return req.header('csrf-token');
+      },
+    }),
+  );
+
+  await app.listen(process.env.PORT || 3005);
 }
 bootstrap();
