@@ -17,7 +17,7 @@ async function bootstrap() {
   // フロント側と通信するために必要な設定
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://todo-nextjs-lime.vercel.app'],
   });
   // フロントエンドから受け取ったCookieを解析できるようにする
   app.use(cookieParser());

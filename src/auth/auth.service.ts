@@ -7,8 +7,6 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { AuthDto } from './dto/auth.dto';
 import { Msg, Jwt } from './interfaces/auth.interface';
-import { throwError, throwIfEmpty } from 'rxjs';
-import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
