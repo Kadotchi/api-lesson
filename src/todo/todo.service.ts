@@ -19,7 +19,7 @@ export class TodoService {
         userId,
       },
       orderBy: {
-        createAt: 'desc',
+        createdAt: 'desc',
       },
     });
   }
